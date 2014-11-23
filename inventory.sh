@@ -19,8 +19,7 @@ else
      #echo "IT'S A MAC!"
      MEMORY=`hostinfo | grep memory | awk -F" " '{ print $2 ":  " $4 " " $5 }'`
   else
-     PROTOMEM=`head -1 /proc/meminfo`
-     MEMORY=`awk -F" " '{ print "memory:  " $1 " " $2 }' $PROTOMEM`
+     MEMORY=`head -1 /proc/meminfo |  awk -F" " '{ print "memory:  " $2 " " $3 }'`
   fi
 
 echo "host: " $HOSTNAME 
